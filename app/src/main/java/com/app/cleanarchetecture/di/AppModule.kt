@@ -1,6 +1,8 @@
-package com.app.cleanarchetecture.presentation.di
+package com.app.cleanarchetecture.di
 
 import com.app.cleanarchetecture.data.remote.api.ApiService
+import com.app.cleanarchetecture.data.repository.DashboardRepositoryImpl
+import com.app.cleanarchetecture.domain.repository.DashboardRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +17,7 @@ class AppModule {
 
     //will make variant
     @Provides
-    fun provideBaseUrl(): String = "https://www.example.com/"
+    fun provideBaseUrl(): String = "https://api.finitt.io/"
 
     @Provides
     @Singleton
@@ -28,4 +30,8 @@ class AppModule {
     @Provides
     fun provideApiService(retrofit: Retrofit): ApiService =
         retrofit.create(ApiService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideDashboardRepository(apiService: ApiService):DashboardRepository = DashboardRepositoryImpl(apiService)
 }

@@ -1,4 +1,4 @@
-package com.app.cleanarchetecture.presentation.utill
+package com.app.cleanarchetecture.utill
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

@@ -1,6 +1,5 @@
 package com.app.cleanarchetecture.domain.model
 
-import com.google.gson.annotations.SerializedName
 
 data class DashBoardResponse(
     val message: String,

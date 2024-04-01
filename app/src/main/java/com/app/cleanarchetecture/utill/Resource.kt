@@ -1,9 +1,9 @@
-package com.app.cleanarchetecture.presentation.utill
+package com.app.cleanarchetecture.utill
 
 sealed class Resource<T>{
     class Loading<T> : Resource<T>()
     class Success<T>(val data: T) : Resource<T>()
-    class Failed<T>(val message:String)  :Resource<T>()
+    class Failed<T>(val message:String)  : Resource<T>()
 
     companion object {
         fun <T> loading() = Loading<T>()
